@@ -1,0 +1,410 @@
+{
+  "eventInfo": {
+    "title": "Conferința de Predicare Expozitivă",
+    "subtitle": "Predica Cartea Amos",
+    "dateRange": "4-6 Martie 2025",
+    "location": "Cluj-Napoca",
+    "timezone": "Europe/Bucharest",
+    "description": "Conferință de formare pentru pastori și lideri de biserică"
+  },
+  "days": [
+    {
+      "id": "day-1",
+      "date": "2025-03-04",
+      "dayLabel": "Miercuri, 4 Martie",
+      "activities": [
+        {
+          "id": "d1-a1",
+          "startTime": "14:00",
+          "endTime": "14:15",
+          "title": "Sosire și înregistrare",
+          "type": "logistics",
+          "icon": "📋"
+        },
+        {
+          "id": "d1-a2",
+          "startTime": "14:15",
+          "endTime": "14:30",
+          "title": "Bun venit",
+          "type": "other",
+          "icon": "👋",
+          "speakers": [
+            {
+              "name": "Mitraș Dudaș"
+            }
+          ]
+        },
+        {
+          "id": "d1-a3",
+          "startTime": "14:30",
+          "endTime": "15:30",
+          "title": "Sesiunea 1 – Rămânând pe linie",
+          "type": "session",
+          "icon": "📖",
+          "speakers": [
+            {
+              "name": "Daniel Suciu"
+            }
+          ]
+        },
+        {
+          "id": "d1-a4",
+          "startTime": "15:30",
+          "endTime": "15:45",
+          "title": "Pauză",
+          "type": "break",
+          "icon": "☕"
+        },
+        {
+          "id": "d1-a5",
+          "startTime": "15:45",
+          "endTime": "16:45",
+          "title": "Sesiunea 2 – Structura",
+          "type": "session",
+          "icon": "📖",
+          "speakers": [
+            {
+              "name": "John Folmar"
+            }
+          ]
+        },
+        {
+          "id": "d1-a6",
+          "startTime": "16:45",
+          "endTime": "17:00",
+          "title": "Pauză",
+          "type": "break",
+          "icon": "☕"
+        },
+        {
+          "id": "d1-a7",
+          "startTime": "17:00",
+          "endTime": "17:30",
+          "title": "Expunere 1 – Amos",
+          "type": "session",
+          "icon": "📢",
+          "speakers": [
+            {
+              "name": "Florin Mureșan"
+            }
+          ]
+        },
+        {
+          "id": "d1-a8",
+          "startTime": "17:30",
+          "title": "Încheiere",
+          "type": "other",
+          "icon": "🏁"
+        }
+      ]
+    },
+    {
+      "id": "day-2",
+      "date": "2025-03-05",
+      "dayLabel": "Joi, 5 Martie",
+      "activities": [
+        {
+          "id": "d2-a1",
+          "startTime": "09:00",
+          "endTime": "09:15",
+          "title": "Sosire",
+          "type": "logistics",
+          "icon": "📋"
+        },
+        {
+          "id": "d2-a2",
+          "startTime": "09:15",
+          "endTime": "10:15",
+          "title": "Sesiunea 3 – Contextul",
+          "type": "session",
+          "icon": "📖",
+          "speakers": [
+            {
+              "name": "Daniel Suciu"
+            }
+          ]
+        },
+        {
+          "id": "d2-a3",
+          "startTime": "10:15",
+          "endTime": "10:30",
+          "title": "Pauză",
+          "type": "break",
+          "icon": "☕"
+        },
+        {
+          "id": "d2-a4",
+          "startTime": "10:30",
+          "endTime": "12:00",
+          "title": "Grup mic 1 – Amos 1:1–2:3 și Amos 2:4–16",
+          "type": "meeting",
+          "icon": "👥",
+          "description": "Lucru în grupuri mici"
+        },
+        {
+          "id": "d2-a5",
+          "startTime": "12:00",
+          "endTime": "12:45",
+          "title": "Prânz",
+          "type": "meal",
+          "icon": "🍽️"
+        },
+        {
+          "id": "d2-a6",
+          "startTime": "12:45",
+          "endTime": "12:55",
+          "title": "Anunțuri – Anunțuri de instruire",
+          "type": "other",
+          "icon": "📢"
+        },
+        {
+          "id": "d2-a7",
+          "startTime": "12:55",
+          "endTime": "13:25",
+          "title": "Q&A – Întrebări și răspunsuri",
+          "type": "other",
+          "icon": "❓",
+          "speakers": [
+            {
+              "name": "Toți vorbitorii"
+            }
+          ]
+        },
+        {
+          "id": "d2-a8",
+          "startTime": "13:25",
+          "endTime": "13:30",
+          "title": "Pauză",
+          "type": "break",
+          "icon": "☕"
+        },
+        {
+          "id": "d2-a9",
+          "startTime": "13:30",
+          "endTime": "14:30",
+          "title": "Sesiunea 4 – Conectarea la Evanghelie",
+          "type": "session",
+          "icon": "📖",
+          "speakers": [
+            {
+              "name": "John Folmar"
+            }
+          ]
+        },
+        {
+          "id": "d2-a10",
+          "startTime": "14:30",
+          "endTime": "14:45",
+          "title": "Pauză",
+          "type": "break",
+          "icon": "☕"
+        },
+        {
+          "id": "d2-a11",
+          "startTime": "14:45",
+          "endTime": "16:15",
+          "title": "Grup mic 2 – Amos 4:1–5 și Amos 4:6–13",
+          "type": "meeting",
+          "icon": "👥",
+          "description": "Lucru în grupuri mici"
+        },
+        {
+          "id": "d2-a12",
+          "startTime": "16:15",
+          "endTime": "16:30",
+          "title": "Pauză",
+          "type": "break",
+          "icon": "☕"
+        },
+        {
+          "id": "d2-a13",
+          "startTime": "16:30",
+          "endTime": "17:00",
+          "title": "Expunere 2 – Amos",
+          "type": "session",
+          "icon": "📢",
+          "speakers": [
+            {
+              "name": "Daniel Suciu"
+            }
+          ]
+        },
+        {
+          "id": "d2-a14",
+          "startTime": "17:00",
+          "title": "Încheiere",
+          "type": "other",
+          "icon": "🏁"
+        }
+      ]
+    },
+    {
+      "id": "day-3",
+      "date": "2025-03-06",
+      "dayLabel": "Vineri, 6 Martie",
+      "activities": [
+        {
+          "id": "d3-a1",
+          "startTime": "09:00",
+          "endTime": "09:15",
+          "title": "Sosire",
+          "type": "logistics",
+          "icon": "📋"
+        },
+        {
+          "id": "d3-a2",
+          "startTime": "09:15",
+          "endTime": "10:15",
+          "title": "Sesiunea 5 – Linia melodică",
+          "type": "session",
+          "icon": "📖",
+          "speakers": [
+            {
+              "name": "Daniel Suciu"
+            }
+          ]
+        },
+        {
+          "id": "d3-a3",
+          "startTime": "10:15",
+          "endTime": "10:30",
+          "title": "Pauză",
+          "type": "break",
+          "icon": "☕"
+        },
+        {
+          "id": "d3-a4",
+          "startTime": "10:30",
+          "endTime": "12:00",
+          "title": "Grup mic 3 – Amos 5:1–17 și Amos 5:18–27",
+          "type": "meeting",
+          "icon": "👥",
+          "description": "Lucru în grupuri mici"
+        },
+        {
+          "id": "d3-a5",
+          "startTime": "12:00",
+          "endTime": "12:45",
+          "title": "Prânz",
+          "type": "meal",
+          "icon": "🍽️"
+        },
+        {
+          "id": "d3-a6",
+          "startTime": "12:45",
+          "endTime": "13:45",
+          "title": "Sesiunea 6 – Aranjamentul",
+          "type": "session",
+          "icon": "📖",
+          "speakers": [
+            {
+              "name": "John Folmar"
+            }
+          ]
+        },
+        {
+          "id": "d3-a7",
+          "startTime": "13:45",
+          "endTime": "14:00",
+          "title": "Anunț – Formulare de feedback",
+          "type": "other",
+          "icon": "📋"
+        },
+        {
+          "id": "d3-a8",
+          "startTime": "14:00",
+          "endTime": "14:15",
+          "title": "Pauză",
+          "type": "break",
+          "icon": "☕"
+        },
+        {
+          "id": "d3-a9",
+          "startTime": "14:15",
+          "endTime": "15:45",
+          "title": "Grup mic 4 – Amos 7:1–8:3 și Amos 9:1–10",
+          "type": "meeting",
+          "icon": "👥",
+          "description": "Lucru în grupuri mici"
+        },
+        {
+          "id": "d3-a10",
+          "startTime": "15:45",
+          "endTime": "16:00",
+          "title": "Pauză",
+          "type": "break",
+          "icon": "☕"
+        },
+        {
+          "id": "d3-a11",
+          "startTime": "16:00",
+          "endTime": "16:30",
+          "title": "Expunere 3 – Amos",
+          "type": "session",
+          "icon": "📢",
+          "speakers": [
+            {
+              "name": "John Folmar"
+            }
+          ]
+        },
+        {
+          "id": "d3-a12",
+          "startTime": "16:30",
+          "title": "Rugăciune și feedback",
+          "type": "worship",
+          "icon": "🙏"
+        }
+      ]
+    }
+  ],
+  "activityTypes": {
+    "logistics": {
+      "color": "#9CA3AF",
+      "icon": "📋",
+      "label": "Logistică"
+    },
+    "session": {
+      "color": "#3B82F6",
+      "icon": "📖",
+      "label": "Sesiune"
+    },
+    "meal": {
+      "color": "#F59E0B",
+      "icon": "🍽️",
+      "label": "Masă"
+    },
+    "break": {
+      "color": "#FDE68A",
+      "icon": "☕",
+      "label": "Pauză"
+    },
+    "worship": {
+      "color": "#8B5CF6",
+      "icon": "🙏",
+      "label": "Închinare"
+    },
+    "recreation": {
+      "color": "#10B981",
+      "icon": "⚽",
+      "label": "Recreere"
+    },
+    "meeting": {
+      "color": "#EC4899",
+      "icon": "👥",
+      "label": "Grup mic"
+    },
+    "other": {
+      "color": "#6B7280",
+      "icon": "📌",
+      "label": "Altele"
+    }
+  },
+  "settings": {
+    "showEndTimes": true,
+    "showIcons": true,
+    "showLocations": false,
+    "showSpeakers": true,
+    "highlightCurrentActivity": true
+  }
+}
