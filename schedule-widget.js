@@ -335,7 +335,7 @@ const ScheduleWidget = (() => {
   /**
    * Create activity card element
    */
-  const createActivityCard = (activity, activityTypes, options) => {
+  const createActivityCard = (activity, activityTypes, options) {
     const type = activityTypes[activity.type] || activityTypes.other;
     const card = createElement('div', {
       classes: `schedule-widget__activity-card ${activity.isOptional ? 'schedule-widget__activity-card--optional' : ''}`,
@@ -343,9 +343,7 @@ const ScheduleWidget = (() => {
         'data-activity-id': activity.id,
         'data-activity-type': activity.type,
         'data-start-time': activity.startTime,
-        'data-end-time': activity.endTime || '',
-        role: 'button',
-        tabindex: '0'
+        'data-end-time': activity.endTime || ''
       }
     });
 
@@ -395,16 +393,6 @@ const ScheduleWidget = (() => {
     cardHTML += `</div>`; // Close content div
     card.innerHTML = cardHTML;
 
-    // Add click/keyboard handlers
-    const showDetails = () => showActivityDetails(activity, type);
-    card.addEventListener('click', showDetails);
-    card.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        showDetails();
-      }
-    });
-
     return card;
   };
 
@@ -425,9 +413,9 @@ const ScheduleWidget = (() => {
         break;
         
       case 'accordion':
-        // Expand first day
-        const firstDay = days[0];
-        $$('.schedule-widget__day--accordion').forEach((day, index) => {
+        // Expand first day and show all days
+        $$('.schedule-widget__day').forEach((day, index) => {
+          day.style.display = 'block'; // Make sure day is visible
           const isFirst = index === 0;
           day.classList.toggle('schedule-widget__day--expanded', isFirst);
           const header = $('.schedule-widget__day-header', day);
@@ -626,8 +614,15 @@ const ScheduleWidget = (() => {
     state.modalElement = modal;
 
     // Close handlers
+    const handleKeydown = (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    };
+    
     const closeModal = () => {
       modal.classList.add('schedule-widget__modal--closing');
+      document.removeEventListener('keydown', handleKeydown);
       setTimeout(() => {
         modal.remove();
         state.modalElement = null;
@@ -640,12 +635,6 @@ const ScheduleWidget = (() => {
     });
     
     // Keyboard handler
-    const handleKeydown = (e) => {
-      if (e.key === 'Escape') {
-        closeModal();
-        document.removeEventListener('keydown', handleKeydown);
-      }
-    };
     document.addEventListener('keydown', handleKeydown);
 
     // Focus trap
@@ -721,7 +710,7 @@ const ScheduleWidget = (() => {
    * Escape text for iCal format
    */
   const escapeICalText = (text) => {
-    if (!text) return '';
+    if (!text || typeof text !== 'string') return '';
     return text.replace(/[,;\\]/g, '\\$&').replace(/\n/g, '\\n');
   };
 
@@ -776,12 +765,10 @@ const ScheduleWidget = (() => {
             <div class="schedule-widget__error">
               <h3>❌ Unable to load schedule</h3>
               <p>${sanitizeHTML(error.message)}</p>
-              <details>
-                <summary>Error details</summary>
-                <pre>${sanitizeHTML(error.stack || error.message)}</pre>
-              </details>
             </div>
           `;
+          // Log stack trace to console for debugging
+          console.error('[ScheduleWidget] Stack trace:', error);
         }
         
         throw error;

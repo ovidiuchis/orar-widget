@@ -1,8 +1,12 @@
-# Orar Widget - Documentație de Utilizare
+# 📅 Schedule Widget - Documentație de Utilizare
 
 ## Prezentare Generală
 
 Acest widget JavaScript permite randarea frumoasă și responsivă a orarelor pentru evenimente de diferite tipuri: conferințe, tabere, evenimente bisericești, etc.
+
+🎨 **4 Teme Vizuale** | 📱 **Responsive** | ⚡ **Zero Dependențe** | ♿ **Accesibil**
+
+[Vezi Demo Live](demo.html) | [Ghid Integrare](INTEGRATION.md)
 
 ## Caracteristici Principale
 

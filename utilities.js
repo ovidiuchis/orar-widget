@@ -86,7 +86,7 @@ const Utils = {
    * @returns {Function} - Throttled function
    */
   throttle(fn, limit) {
-    let inThrottle;
+    let inThrottle = false;
     return (...args) => {
       if (!inThrottle) {
         fn(...args);
@@ -241,7 +241,7 @@ const Utils = {
     const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
     
     if (endTime) {
-      return currentTime >= startTime && currentTime <= endTime;
+      return currentTime >= startTime && currentTime < endTime;
     }
     
     return currentTime === startTime;

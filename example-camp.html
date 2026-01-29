@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabără 2025 - Programul Complet</title>
+    
+    <!-- Widget Styles -->
+    <link rel="stylesheet" href="schedule-widget.css">
+    <link rel="stylesheet" href="themes/mountain-retreat.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="schedule-container"></div>
+    </div>
+    
+    <!-- Widget Scripts -->
+    <script src="utilities.js"></script>
+    <script src="schedule-widget.js"></script>
+    
+    <script>
+        // Load schedule data
+        fetch('docs/example-camp-mai2025.json')
+            .then(response => response.json())
+            .then(data => {
+                ScheduleWidget.init({
+                    containerId: 'schedule-container',
+                    data: data,
+                    theme: 'mountain-retreat',
+                    displayMode: 'tabs',
+                    options: {
+                        showSearch: true,
+                        enableExport: true,
+                        showIcons: true,
+                        language: 'ro',
+                        timeFormat: '24h',
+                        highlightCurrent: true
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Failed to load schedule:', error);
+                document.getElementById('schedule-container').innerHTML = `
+                    <div style="padding: 2rem; text-align: center; color: red;">
+                        <h2>Eroare la încărcarea programului</h2>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            });
+    </script>
+</body>
+</html>

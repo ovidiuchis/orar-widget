@@ -1,116 +1,140 @@
 /**
  * Schedule Widget - Professional Conference Theme
- * Perfect for business conferences, tech events
- * Colors: Blues, grays, accent teal/orange
+ * Corporate, clean, modern business aesthetic
+ * Colors: Corporate blues, slate grays, minimal accents
  */
 
 .schedule-widget--theme-professional {
-  /* Color palette */
-  --sw-color-primary: #1e40af;      /* Professional blue */
-  --sw-color-secondary: #64748b;    /* Slate gray */
-  --sw-color-accent: #0891b2;       /* Teal accent */
+  /* Color palette - corporate and clean */
+  --sw-color-primary: #003d82;      /* Deep corporate blue */
+  --sw-color-secondary: #4a5568;    /* Slate gray */
+  --sw-color-accent: #0077cc;       /* Accent blue */
   
-  --sw-text-primary: #0f172a;
-  --sw-text-secondary: #475569;
-  --sw-text-muted: #94a3b8;
+  --sw-text-primary: #1a202c;
+  --sw-text-secondary: #4a5568;
+  --sw-text-muted: #718096;
   
-  --sw-background: #f8fafc;         /* Light blue-gray */
+  --sw-background: #f7fafc;         /* Cool off-white */
   --sw-background-elevated: #ffffff;
   --sw-card-background: #ffffff;
   
-  --sw-border-color: #e2e8f0;
+  --sw-border-color: #cbd5e0;
   
   /* Activity type colors - professional palette */
-  --activity-logistics: #64748b;
-  --activity-session: #2563eb;
-  --activity-meal: #ea580c;
-  --activity-break: #fbbf24;
-  --activity-worship: #7c3aed;
-  --activity-recreation: #059669;
-  --activity-meeting: #db2777;
-  --activity-other: #6b7280;
+  --activity-logistics: #718096;
+  --activity-session: #0077cc;
+  --activity-meal: #dd6b20;
+  --activity-break: #ecc94b;
+  --activity-worship: #805ad5;
+  --activity-recreation: #38a169;
+  --activity-meeting: #d53f8c;
+  --activity-other: #718096;
 }
 
-/* Theme-specific styling */
+/* Theme-specific styling - sharp and corporate */
 .schedule-widget--theme-professional .schedule-widget__header {
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(8, 145, 178, 0.05) 100%);
-  border-bottom: 3px solid var(--sw-color-primary);
-  padding: var(--sw-spacing-xl);
-  margin-bottom: var(--sw-spacing-2xl);
-  border-radius: 0;
+  background: white;
+  border-bottom: 3px solid #003d82;
+  padding: var(--sw-spacing-lg);
+  margin-bottom: var(--sw-spacing-xl);
 }
 
 .schedule-widget--theme-professional .schedule-widget__title {
-  color: var(--sw-color-primary);
+  color: #003d82;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .schedule-widget--theme-professional .schedule-widget__day-tab {
   background: white;
-  border: 2px solid var(--sw-border-color);
-  border-radius: var(--sw-radius-sm);
+  border: 2px solid #cbd5e0;
+  border-radius: 2px;
+  color: #1a202c;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--sw-font-size-xs);
+  letter-spacing: 0.05em;
 }
 
 .schedule-widget--theme-professional .schedule-widget__day-tab:hover {
-  border-color: var(--sw-color-primary);
-  background: rgba(30, 64, 175, 0.02);
+  border-color: #0077cc;
+  background: #f7fafc;
 }
 
 .schedule-widget--theme-professional .schedule-widget__day-tab--active {
-  background: var(--sw-color-primary);
-  border-color: var(--sw-color-primary);
-  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.25);
+  background: #003d82;
+  color: white;
+  border-color: #003d82;
+  box-shadow: 0 1px 2px rgba(0, 61, 130, 0.2);
 }
 
 .schedule-widget--theme-professional .schedule-widget__activity-card {
   background: white;
-  border-left-width: 4px;
-  border-radius: var(--sw-radius-sm);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid var(--activity-color);
+  border-radius: 2px;
+  box-shadow: none;
 }
 
 .schedule-widget--theme-professional .schedule-widget__activity-card:hover {
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 61, 130, 0.1);
+  border-color: #cbd5e0;
+}
+
+.schedule-widget--theme-professional .schedule-widget__activity-title {
+  font-weight: 600;
+  color: #1a202c;
 }
 
 .schedule-widget--theme-professional .schedule-widget__day-header {
   background: white;
-  border: 2px solid var(--sw-border-color);
-  border-left: 4px solid var(--sw-color-primary);
-  border-radius: var(--sw-radius-sm);
+  border: 1px solid #cbd5e0;
+  border-left: 3px solid #003d82;
+  border-radius: 2px;
 }
 
 .schedule-widget--theme-professional .schedule-widget__export-btn {
-  background: var(--sw-color-primary);
-  border-radius: var(--sw-radius-sm);
+  background: #003d82;
+  border-radius: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--sw-font-size-xs);
+  letter-spacing: 0.05em;
 }
 
 .schedule-widget--theme-professional .schedule-widget__export-btn:hover {
-  background: #1e3a8a;
+  background: #002a5c;
 }
 
-/* Sharp, modern lines */
-.schedule-widget--theme-professional .schedule-widget__activity-badge {
-  border-radius: var(--sw-radius-sm);
-  background: var(--sw-color-accent);
-}
-
-/* Timeline - modern style */
 .schedule-widget--theme-professional .schedule-widget__activities--timeline::before {
-  background: var(--sw-color-primary);
+  background: #003d82;
   width: 2px;
 }
 
-.schedule-widget--theme-professional .schedule-widget__activities--timeline .schedule-widget__activity-card::before {
-  border-width: 2px;
-  box-shadow: 0 0 0 3px var(--sw-background);
+.schedule-widget--theme-professional .schedule-widget__activity-badge {
+  background: #0077cc;
+  border-radius: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--sw-font-size-xs);
+  letter-spacing: 0.05em;
 }
 
-/* Typography adjustments */
-.schedule-widget--theme-professional .schedule-widget__activity-title {
-  letter-spacing: -0.01em;
+/* Remove all rounded corners for professional look */
+.schedule-widget--theme-professional .schedule-widget__activity-card,
+.schedule-widget--theme-professional .schedule-widget__day-tab,
+.schedule-widget--theme-professional .schedule-widget__day-header,
+.schedule-widget--theme-professional .schedule-widget__export-btn,
+.schedule-widget--theme-professional .schedule-widget__activity-badge {
+  border-radius: 2px;
 }
 
-.schedule-widget--theme-professional .schedule-widget__day-title {
-  letter-spacing: -0.02em;
+/* Typography adjustments - more corporate */
+.schedule-widget--theme-professional {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.schedule-widget--theme-professional .schedule-widget__activity-time {
+  color: #4a5568;
+  font-weight: 700;
 }
