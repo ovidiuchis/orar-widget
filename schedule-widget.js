@@ -268,6 +268,70 @@ const ScheduleWidget = (() => {
   };
 
   /**
+   * Create activity card element
+   */
+  const createActivityCard = (activity, activityTypes, options) => {
+    const type = activityTypes[activity.type] || activityTypes.other;
+    const card = createElement('div', {
+      classes: `schedule-widget__activity-card ${activity.isOptional ? 'schedule-widget__activity-card--optional' : ''}`,
+      attrs: {
+        'data-activity-id': activity.id,
+        'data-activity-type': activity.type,
+        'data-start-time': activity.startTime,
+        'data-end-time': activity.endTime || ''
+      }
+    });
+
+    // Apply activity color
+    card.style.setProperty('--activity-color', type.color);
+
+    // Build card HTML
+    let cardHTML = `
+      <div class="schedule-widget__activity-time">
+        <span class="schedule-widget__time-start">${formatTime(activity.startTime, options.timeFormat)}</span>
+        ${options.showEndTimes && activity.endTime ? `
+          <span class="schedule-widget__time-separator">-</span>
+          <span class="schedule-widget__time-end">${formatTime(activity.endTime, options.timeFormat)}</span>
+        ` : ''}
+      </div>
+      <div class="schedule-widget__activity-content">
+        <div class="schedule-widget__activity-header">
+          ${options.showIcons && activity.icon ? `
+            <span class="schedule-widget__activity-icon" aria-hidden="true">${activity.icon}</span>
+          ` : ''}
+          <h3 class="schedule-widget__activity-title">${sanitizeHTML(activity.title)}</h3>
+          ${activity.isOptional ? '<span class="schedule-widget__activity-badge">Opțional</span>' : ''}
+        </div>
+    `;
+
+    if (activity.description) {
+      cardHTML += `<p class="schedule-widget__activity-description">${sanitizeHTML(activity.description)}</p>`;
+    }
+
+    if (options.showSpeakers && activity.speakers && activity.speakers.length > 0) {
+      cardHTML += `
+        <div class="schedule-widget__activity-speakers">
+          <span class="schedule-widget__speakers-label">🎤</span>
+          ${activity.speakers.map(s => `<span class="schedule-widget__speaker">${sanitizeHTML(s.name)}${s.role ? ` (${sanitizeHTML(s.role)})` : ''}</span>`).join(', ')}
+        </div>
+      `;
+    }
+
+    if (options.showLocations && activity.location) {
+      cardHTML += `
+        <div class="schedule-widget__activity-location">
+          📍 ${sanitizeHTML(activity.location)}
+        </div>
+      `;
+    }
+
+    cardHTML += `</div>`; // Close content div
+    card.innerHTML = cardHTML;
+
+    return card;
+  };
+
+  /**
    * Create days container with all activities
    */
   const createDaysContainer = (days, config) => {
@@ -332,69 +396,6 @@ const ScheduleWidget = (() => {
     return container;
   };
 
-  /**
-   * Create activity card element
-   */
-  const createActivityCard = (activity, activityTypes, options) {
-    const type = activityTypes[activity.type] || activityTypes.other;
-    const card = createElement('div', {
-      classes: `schedule-widget__activity-card ${activity.isOptional ? 'schedule-widget__activity-card--optional' : ''}`,
-      attrs: {
-        'data-activity-id': activity.id,
-        'data-activity-type': activity.type,
-        'data-start-time': activity.startTime,
-        'data-end-time': activity.endTime || ''
-      }
-    });
-
-    // Apply activity color
-    card.style.setProperty('--activity-color', type.color);
-
-    // Build card HTML
-    let cardHTML = `
-      <div class="schedule-widget__activity-time">
-        <span class="schedule-widget__time-start">${formatTime(activity.startTime, options.timeFormat)}</span>
-        ${options.showEndTimes && activity.endTime ? `
-          <span class="schedule-widget__time-separator">-</span>
-          <span class="schedule-widget__time-end">${formatTime(activity.endTime, options.timeFormat)}</span>
-        ` : ''}
-      </div>
-      <div class="schedule-widget__activity-content">
-        <div class="schedule-widget__activity-header">
-          ${options.showIcons && activity.icon ? `
-            <span class="schedule-widget__activity-icon" aria-hidden="true">${activity.icon}</span>
-          ` : ''}
-          <h3 class="schedule-widget__activity-title">${sanitizeHTML(activity.title)}</h3>
-          ${activity.isOptional ? '<span class="schedule-widget__activity-badge">Opțional</span>' : ''}
-        </div>
-    `;
-
-    if (activity.description) {
-      cardHTML += `<p class="schedule-widget__activity-description">${sanitizeHTML(activity.description)}</p>`;
-    }
-
-    if (options.showSpeakers && activity.speakers && activity.speakers.length > 0) {
-      cardHTML += `
-        <div class="schedule-widget__activity-speakers">
-          <span class="schedule-widget__speakers-label">🎤</span>
-          ${activity.speakers.map(s => `<span class="schedule-widget__speaker">${sanitizeHTML(s.name)}${s.role ? ` (${sanitizeHTML(s.role)})` : ''}</span>`).join(', ')}
-        </div>
-      `;
-    }
-
-    if (options.showLocations && activity.location) {
-      cardHTML += `
-        <div class="schedule-widget__activity-location">
-          📍 ${sanitizeHTML(activity.location)}
-        </div>
-      `;
-    }
-
-    cardHTML += `</div>`; // Close content div
-    card.innerHTML = cardHTML;
-
-    return card;
-  };
 
   // ========================================
   // DISPLAY MODE INITIALIZATION
