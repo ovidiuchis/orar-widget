@@ -1,0 +1,116 @@
+/**
+ * Schedule Widget - Professional Conference Theme
+ * Perfect for business conferences, tech events
+ * Colors: Blues, grays, accent teal/orange
+ */
+
+.schedule-widget--theme-professional {
+  /* Color palette */
+  --sw-color-primary: #1e40af;      /* Professional blue */
+  --sw-color-secondary: #64748b;    /* Slate gray */
+  --sw-color-accent: #0891b2;       /* Teal accent */
+  
+  --sw-text-primary: #0f172a;
+  --sw-text-secondary: #475569;
+  --sw-text-muted: #94a3b8;
+  
+  --sw-background: #f8fafc;         /* Light blue-gray */
+  --sw-background-elevated: #ffffff;
+  --sw-card-background: #ffffff;
+  
+  --sw-border-color: #e2e8f0;
+  
+  /* Activity type colors - professional palette */
+  --activity-logistics: #64748b;
+  --activity-session: #2563eb;
+  --activity-meal: #ea580c;
+  --activity-break: #fbbf24;
+  --activity-worship: #7c3aed;
+  --activity-recreation: #059669;
+  --activity-meeting: #db2777;
+  --activity-other: #6b7280;
+}
+
+/* Theme-specific styling */
+.schedule-widget--theme-professional .schedule-widget__header {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(8, 145, 178, 0.05) 100%);
+  border-bottom: 3px solid var(--sw-color-primary);
+  padding: var(--sw-spacing-xl);
+  margin-bottom: var(--sw-spacing-2xl);
+  border-radius: 0;
+}
+
+.schedule-widget--theme-professional .schedule-widget__title {
+  color: var(--sw-color-primary);
+  letter-spacing: -0.02em;
+}
+
+.schedule-widget--theme-professional .schedule-widget__day-tab {
+  background: white;
+  border: 2px solid var(--sw-border-color);
+  border-radius: var(--sw-radius-sm);
+}
+
+.schedule-widget--theme-professional .schedule-widget__day-tab:hover {
+  border-color: var(--sw-color-primary);
+  background: rgba(30, 64, 175, 0.02);
+}
+
+.schedule-widget--theme-professional .schedule-widget__day-tab--active {
+  background: var(--sw-color-primary);
+  border-color: var(--sw-color-primary);
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.25);
+}
+
+.schedule-widget--theme-professional .schedule-widget__activity-card {
+  background: white;
+  border-left-width: 4px;
+  border-radius: var(--sw-radius-sm);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-widget--theme-professional .schedule-widget__activity-card:hover {
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.1);
+}
+
+.schedule-widget--theme-professional .schedule-widget__day-header {
+  background: white;
+  border: 2px solid var(--sw-border-color);
+  border-left: 4px solid var(--sw-color-primary);
+  border-radius: var(--sw-radius-sm);
+}
+
+.schedule-widget--theme-professional .schedule-widget__export-btn {
+  background: var(--sw-color-primary);
+  border-radius: var(--sw-radius-sm);
+}
+
+.schedule-widget--theme-professional .schedule-widget__export-btn:hover {
+  background: #1e3a8a;
+}
+
+/* Sharp, modern lines */
+.schedule-widget--theme-professional .schedule-widget__activity-badge {
+  border-radius: var(--sw-radius-sm);
+  background: var(--sw-color-accent);
+}
+
+/* Timeline - modern style */
+.schedule-widget--theme-professional .schedule-widget__activities--timeline::before {
+  background: var(--sw-color-primary);
+  width: 2px;
+}
+
+.schedule-widget--theme-professional .schedule-widget__activities--timeline .schedule-widget__activity-card::before {
+  border-width: 2px;
+  box-shadow: 0 0 0 3px var(--sw-background);
+}
+
+/* Typography adjustments */
+.schedule-widget--theme-professional .schedule-widget__activity-title {
+  letter-spacing: -0.01em;
+}
+
+.schedule-widget--theme-professional .schedule-widget__day-title {
+  letter-spacing: -0.02em;
+}

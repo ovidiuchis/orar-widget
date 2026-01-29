@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Schedule Widget Demo - Beautiful event schedules for conferences, camps, and church events">
+    <title>Schedule Widget - Demo & Documentation</title>
+    
+    <!-- Widget Styles -->
+    <link rel="stylesheet" href="schedule-widget.css">
+    <link rel="stylesheet" href="themes/mountain-retreat.css">
+    <link rel="stylesheet" href="themes/professional.css">
+    <link rel="stylesheet" href="themes/community-church.css">
+    <link rel="stylesheet" href="themes/festival-bright.css">
+    
+    <style>
+        /* Demo page styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .demo-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .demo-header p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+        }
+        
+        .demo-controls {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .demo-controls h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .btn:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+        }
+        
+        .widget-wrapper {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .demo-footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .demo-footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-header h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <header class="demo-header">
+            <h1>📅 Schedule Widget</h1>
+            <p>Beautiful, responsive event schedules for any occasion</p>
+        </header>
+        
+        <div class="demo-controls">
+            <h2>⚙️ Widget Configuration</h2>
+            
+            <div class="control-group">
+                <label>Theme:</label>
+                <div class="button-group">
+                    <button class="btn active" data-theme="mountain-retreat">🏔️ Mountain Retreat</button>
+                    <button class="btn" data-theme="professional">💼 Professional</button>
+                    <button class="btn" data-theme="community-church">⛪ Community Church</button>
+                    <button class="btn" data-theme="festival-bright">🎉 Festival Bright</button>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>Display Mode:</label>
+                <div class="button-group">
+                    <button class="btn active" data-mode="tabs">📑 Tabs</button>
+                    <button class="btn" data-mode="accordion">📋 Accordion</button>
+                    <button class="btn" data-mode="full-scroll">📜 Full Scroll</button>
+                    <button class="btn" data-mode="timeline">⏱️ Timeline</button>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>Options:</label>
+                <div class="button-group">
+                    <button class="btn" data-option="showSearch">🔍 Search</button>
+                    <button class="btn" data-option="enableExport">📅 Export</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="widget-wrapper">
+            <div id="schedule-container"></div>
+        </div>
+        
+        <footer class="demo-footer">
+            <p>Schedule Widget v1.0.0 | Zero dependencies, vanilla JavaScript</p>
+            <p>See <a href="README.md">README.md</a> for integration guide</p>
+        </footer>
+    </div>
+    
+    <!-- Widget Scripts -->
+    <script src="utilities.js"></script>
+    <script src="schedule-widget.js"></script>
+    
+    <script>
+        // Widget instance
+        let widget = null;
+        
+        // Current configuration
+        let config = {
+            containerId: 'schedule-container',
+            theme: 'mountain-retreat',
+            displayMode: 'tabs',
+            options: {
+                showSearch: false,
+                enableExport: false,
+                showIcons: true,
+                language: 'ro',
+                timeFormat: '24h',
+                highlightCurrent: true
+            }
+        };
+        
+        // Load and initialize widget
+        async function initWidget() {
+            try {
+                // Load example data
+                const response = await fetch('docs/example-camp-mai2025.json');
+                const data = await response.json();
+                
+                // Destroy previous instance if exists
+                if (widget) {
+                    widget.destroy();
+                }
+                
+                // Initialize widget
+                config.data = data;
+                widget = ScheduleWidget.init(config);
+                
+                console.log('Widget initialized successfully');
+            } catch (error) {
+                console.error('Failed to initialize widget:', error);
+                document.getElementById('schedule-container').innerHTML = `
+                    <div style="padding: 2rem; text-align: center; color: #c00;">
+                        <h3>❌ Failed to load widget</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Theme switcher
+        document.querySelectorAll('[data-theme]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                document.querySelectorAll('[data-theme]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update config and reinitialize
+                config.theme = this.dataset.theme;
+                initWidget();
+            });
+        });
+        
+        // Display mode switcher
+        document.querySelectorAll('[data-mode]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                document.querySelectorAll('[data-mode]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update config and reinitialize
+                config.displayMode = this.dataset.mode;
+                initWidget();
+            });
+        });
+        
+        // Options toggles
+        document.querySelectorAll('[data-option]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Toggle active state
+                this.classList.toggle('active');
+                
+                // Update config and reinitialize
+                const option = this.dataset.option;
+                config.options[option] = this.classList.contains('active');
+                initWidget();
+            });
+        });
+        
+        // Initialize on page load
+        initWidget();
+    </script>
+</body>
+</html>

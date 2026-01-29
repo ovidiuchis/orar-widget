@@ -1,0 +1,99 @@
+/**
+ * Schedule Widget - Mountain Retreat Theme
+ * Perfect for camps, retreats, and outdoor events
+ * Colors: Earth tones, forest greens, warm browns
+ */
+
+.schedule-widget--theme-mountain-retreat {
+  /* Color palette */
+  --sw-color-primary: #2d5016;      /* Forest green */
+  --sw-color-secondary: #8b7355;    /* Warm brown */
+  --sw-color-accent: #d4a574;       /* Soft gold */
+  
+  --sw-text-primary: #1a1a1a;
+  --sw-text-secondary: #666666;
+  --sw-text-muted: #999999;
+  
+  --sw-background: #faf8f5;         /* Warm off-white */
+  --sw-background-elevated: #ffffff;
+  --sw-card-background: #ffffff;
+  
+  --sw-border-color: rgba(45, 80, 22, 0.15);
+  
+  /* Activity type colors - nature inspired */
+  --activity-logistics: #9ca3af;
+  --activity-session: #3b82f6;
+  --activity-meal: #f59e0b;
+  --activity-break: #fde68a;
+  --activity-worship: #8b5cf6;
+  --activity-recreation: #10b981;
+  --activity-meeting: #ec4899;
+  --activity-other: #6b7280;
+}
+
+/* Theme-specific styling */
+.schedule-widget--theme-mountain-retreat .schedule-widget__header {
+  background: linear-gradient(135deg, rgba(45, 80, 22, 0.05) 0%, rgba(139, 115, 85, 0.05) 100%);
+  border-radius: var(--sw-radius-xl);
+  padding: var(--sw-spacing-xl);
+  margin-bottom: var(--sw-spacing-2xl);
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__title {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7a28 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__day-tab {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 248, 245, 0.9) 100%);
+  border: 2px solid transparent;
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__day-tab--active {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7a28 100%);
+  box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__activity-card {
+  background: white;
+  border-left-width: 5px;
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__activity-card:hover {
+  box-shadow: 0 8px 20px rgba(45, 80, 22, 0.15);
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__activity-icon {
+  filter: drop-shadow(2px 2px 4px rgba(45, 80, 22, 0.15));
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__day-header {
+  background: linear-gradient(135deg, rgba(45, 80, 22, 0.05) 0%, rgba(212, 165, 116, 0.05) 100%);
+  border-left: 5px solid var(--sw-color-accent);
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__export-btn {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7a28 100%);
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__export-btn:hover {
+  background: linear-gradient(135deg, #4a7a28 0%, #5d9135 100%);
+}
+
+/* Organic, rounded style */
+.schedule-widget--theme-mountain-retreat .schedule-widget__activity-card,
+.schedule-widget--theme-mountain-retreat .schedule-widget__day-tab,
+.schedule-widget--theme-mountain-retreat .schedule-widget__day-header {
+  border-radius: var(--sw-radius-lg);
+}
+
+/* Timeline dots - nature themed */
+.schedule-widget--theme-mountain-retreat .schedule-widget__activities--timeline::before {
+  background: linear-gradient(180deg, #2d5016 0%, #4a7a28 100%);
+}
+
+.schedule-widget--theme-mountain-retreat .schedule-widget__activities--timeline .schedule-widget__activity-card::before {
+  box-shadow: 0 0 0 4px rgba(45, 80, 22, 0.2);
+}

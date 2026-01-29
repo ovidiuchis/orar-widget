@@ -1,0 +1,125 @@
+/**
+ * Schedule Widget - Community Church Theme
+ * Perfect for church events, spiritual retreats
+ * Colors: Soft purples, warm golds, light backgrounds
+ */
+
+.schedule-widget--theme-community-church {
+  /* Color palette */
+  --sw-color-primary: #7c3aed;      /* Soft purple */
+  --sw-color-secondary: #c084fc;    /* Light purple */
+  --sw-color-accent: #fbbf24;       /* Warm gold */
+  
+  --sw-text-primary: #1f2937;
+  --sw-text-secondary: #6b7280;
+  --sw-text-muted: #9ca3af;
+  
+  --sw-background: #faf5ff;         /* Very light purple */
+  --sw-background-elevated: #ffffff;
+  --sw-card-background: #ffffff;
+  
+  --sw-border-color: rgba(124, 58, 237, 0.1);
+  
+  /* Activity type colors - spiritual palette */
+  --activity-logistics: #9ca3af;
+  --activity-session: #6366f1;
+  --activity-meal: #f59e0b;
+  --activity-break: #fde68a;
+  --activity-worship: #8b5cf6;
+  --activity-recreation: #10b981;
+  --activity-meeting: #ec4899;
+  --activity-other: #6b7280;
+}
+
+/* Theme-specific styling */
+.schedule-widget--theme-community-church .schedule-widget__header {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(251, 191, 36, 0.08) 100%);
+  border-radius: var(--sw-radius-xl);
+  padding: var(--sw-spacing-xl);
+  margin-bottom: var(--sw-spacing-2xl);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.08);
+}
+
+.schedule-widget--theme-community-church .schedule-widget__title {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.schedule-widget--theme-community-church .schedule-widget__day-tab {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 245, 255, 0.95) 100%);
+  border: 2px solid rgba(124, 58, 237, 0.1);
+  box-shadow: 0 2px 4px rgba(124, 58, 237, 0.05);
+}
+
+.schedule-widget--theme-community-church .schedule-widget__day-tab:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 8px rgba(124, 58, 237, 0.1);
+}
+
+.schedule-widget--theme-community-church .schedule-widget__day-tab--active {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  border-color: transparent;
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.3);
+}
+
+.schedule-widget--theme-community-church .schedule-widget__activity-card {
+  background: white;
+  border-left-width: 5px;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+}
+
+.schedule-widget--theme-community-church .schedule-widget__activity-card:hover {
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15);
+  transform: translateY(-3px);
+}
+
+.schedule-widget--theme-community-church .schedule-widget__activity-icon {
+  filter: drop-shadow(2px 2px 4px rgba(124, 58, 237, 0.2));
+}
+
+.schedule-widget--theme-community-church .schedule-widget__day-header {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(251, 191, 36, 0.05) 100%);
+  border-left: 5px solid var(--sw-color-accent);
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+}
+
+.schedule-widget--theme-community-church .schedule-widget__export-btn {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+.schedule-widget--theme-community-church .schedule-widget__export-btn:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #9333ea 100%);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.3);
+}
+
+/* Warm, elegant style */
+.schedule-widget--theme-community-church .schedule-widget__activity-card,
+.schedule-widget--theme-community-church .schedule-widget__day-tab,
+.schedule-widget--theme-community-church .schedule-widget__day-header {
+  border-radius: var(--sw-radius-lg);
+}
+
+.schedule-widget--theme-community-church .schedule-widget__activity-badge {
+  background: linear-gradient(135deg, var(--sw-color-accent) 0%, #fcd34d 100%);
+  box-shadow: 0 2px 4px rgba(251, 191, 36, 0.3);
+}
+
+/* Timeline - spiritual aesthetic */
+.schedule-widget--theme-community-church .schedule-widget__activities--timeline::before {
+  background: linear-gradient(180deg, #7c3aed 0%, #a855f7 50%, #fbbf24 100%);
+  width: 4px;
+}
+
+.schedule-widget--theme-community-church .schedule-widget__activities--timeline .schedule-widget__activity-card::before {
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+  width: 14px;
+  height: 14px;
+}
+
+/* Subtle glow effects */
+.schedule-widget--theme-community-church .schedule-widget__activity-card--current {
+  box-shadow: 0 8px 24px rgba(251, 191, 36, 0.3), 0 0 0 1px rgba(251, 191, 36, 0.1);
+}

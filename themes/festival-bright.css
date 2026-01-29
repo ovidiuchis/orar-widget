@@ -1,0 +1,223 @@
+/**
+ * Schedule Widget - Festival Bright Theme
+ * Perfect for youth events, festivals, dynamic gatherings
+ * Colors: Vibrant multi-color palette
+ */
+
+.schedule-widget--theme-festival-bright {
+  /* Color palette */
+  --sw-color-primary: #ec4899;      /* Bright pink */
+  --sw-color-secondary: #8b5cf6;    /* Vibrant purple */
+  --sw-color-accent: #f59e0b;       /* Bold orange */
+  
+  --sw-text-primary: #1a1a1a;
+  --sw-text-secondary: #525252;
+  --sw-text-muted: #737373;
+  
+  --sw-background: #fefce8;         /* Light yellow tint */
+  --sw-background-elevated: #ffffff;
+  --sw-card-background: #ffffff;
+  
+  --sw-border-color: rgba(236, 72, 153, 0.15);
+  
+  /* Activity type colors - vibrant palette */
+  --activity-logistics: #8b5cf6;
+  --activity-session: #3b82f6;
+  --activity-meal: #f59e0b;
+  --activity-break: #fbbf24;
+  --activity-worship: #a855f7;
+  --activity-recreation: #10b981;
+  --activity-meeting: #ec4899;
+  --activity-other: #6366f1;
+}
+
+/* Theme-specific styling */
+.schedule-widget--theme-festival-bright .schedule-widget__header {
+  background: linear-gradient(135deg, 
+    rgba(236, 72, 153, 0.1) 0%, 
+    rgba(139, 92, 246, 0.1) 50%,
+    rgba(245, 158, 11, 0.1) 100%);
+  border-radius: var(--sw-radius-xl);
+  padding: var(--sw-spacing-xl);
+  margin-bottom: var(--sw-spacing-2xl);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--sw-radius-xl);
+  padding: 3px;
+  background: linear-gradient(135deg, #ec4899, #8b5cf6, #f59e0b);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__title {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--sw-font-weight-bold);
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__day-tab {
+  background: white;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  font-weight: var(--sw-font-weight-semibold);
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__day-tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--sw-radius-lg);
+  padding: 3px;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(139, 92, 246, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__day-tab:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__day-tab--active {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__day-tab--active::before {
+  display: none;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__activity-card {
+  background: white;
+  border-left-width: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__activity-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    var(--activity-color) 0%, 
+    transparent 100%);
+  opacity: 0.3;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__activity-card:hover {
+  box-shadow: 0 12px 32px rgba(236, 72, 153, 0.2);
+  transform: translateY(-4px) scale(1.01);
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__activity-icon {
+  filter: drop-shadow(2px 2px 8px rgba(236, 72, 153, 0.3));
+  font-size: 1.75rem;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__activity-title {
+  font-weight: var(--sw-font-weight-bold);
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__day-header {
+  background: linear-gradient(135deg, 
+    rgba(236, 72, 153, 0.08) 0%, 
+    rgba(139, 92, 246, 0.08) 100%);
+  border-left: 6px solid;
+  border-image: linear-gradient(180deg, #ec4899, #8b5cf6) 1;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.15);
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__export-btn {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  font-weight: var(--sw-font-weight-bold);
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.4);
+  border: none;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__export-btn:hover {
+  background: linear-gradient(135deg, #db2777 0%, #7c3aed 100%);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.5);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Bold, playful style */
+.schedule-widget--theme-festival-bright .schedule-widget__activity-card,
+.schedule-widget--theme-festival-bright .schedule-widget__day-tab,
+.schedule-widget--theme-festival-bright .schedule-widget__day-header {
+  border-radius: var(--sw-radius-xl);
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__activity-badge {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  font-weight: var(--sw-font-weight-bold);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  padding: var(--sw-spacing-xs) var(--sw-spacing-md);
+  text-transform: uppercase;
+  font-size: var(--sw-font-size-xs);
+  letter-spacing: 0.05em;
+}
+
+/* Timeline - colorful gradient */
+.schedule-widget--theme-festival-bright .schedule-widget__activities--timeline::before {
+  background: linear-gradient(180deg, 
+    #ec4899 0%, 
+    #8b5cf6 25%,
+    #3b82f6 50%,
+    #10b981 75%,
+    #f59e0b 100%);
+  width: 5px;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__activities--timeline .schedule-widget__activity-card::before {
+  box-shadow: 0 0 0 5px rgba(236, 72, 153, 0.2);
+  width: 16px;
+  height: 16px;
+  border-width: 4px;
+}
+
+/* Energetic animations */
+.schedule-widget--theme-festival-bright .schedule-widget__activity-card--current {
+  animation: pulse-bright 2s ease-in-out infinite;
+}
+
+@keyframes pulse-bright {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(236, 72, 153, 0.3);
+  }
+  50% {
+    box-shadow: 0 12px 32px rgba(139, 92, 246, 0.4), 0 0 0 6px rgba(236, 72, 153, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+/* Search input - vibrant style */
+.schedule-widget--theme-festival-bright .schedule-widget__search {
+  border: 3px solid transparent;
+  background: white;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.schedule-widget--theme-festival-bright .schedule-widget__search:focus {
+  border-image: linear-gradient(135deg, #ec4899, #8b5cf6) 1;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.1);
+}
