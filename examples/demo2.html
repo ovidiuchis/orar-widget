@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Widget - Brighty Demo</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+
+    <!-- Themes -->
+    <link rel="stylesheet" href="../styles/themes/outdoor.css">
+    <link rel="stylesheet" href="../styles/themes/conference.css">
+    <link rel="stylesheet" href="../styles/themes/community.css">
+    <link rel="stylesheet" href="../styles/themes/brighty.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            /* Center the widget for presentation */
+            display: flex;
+            justify-content: center;
+        }
+
+        #schedule-container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            /* Min height to look good */
+            min-height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="schedule-container"></div>
+
+    <script type="module">
+        import ScheduleWidget from '../src/schedule-widget.js';
+
+        let scheduleData = null;
+
+        async function loadData() {
+            try {
+                // Using the rich example data
+                const response = await fetch('./data/example-conference-4day.json');
+                scheduleData = await response.json();
+                initWidget();
+            } catch (error) {
+                console.error(error);
+                document.getElementById('schedule-container').innerHTML = 'Error loading data.';
+            }
+        }
+
+        function initWidget() {
+            const container = document.getElementById('schedule-container');
+
+            const config = {
+                containerId: 'schedule-container',
+                data: scheduleData,
+                theme: 'outdoor',        // Requested: Brighty
+                displayMode: 'tabs',     // Requested: Tabs
+                options: {
+                    showSearch: false,   // Requested: No Search
+                    showIcons: true,
+                    showEndTimes: true,
+                    showSpeakers: true,
+                    showLocations: true,
+                    language: 'ro',
+                    timeFormat: '24h'
+                }
+            };
+
+            console.log('Initializing Demo 2 with config:', config);
+            new ScheduleWidget(config);
+        }
+
+        loadData();
+    </script>
+</body>
+
+</html>

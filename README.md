@@ -13,49 +13,92 @@ Acest widget JavaScript permite randarea frumoasă și responsivă a orarelor pe
 ✅ **Customizabil** - JSON simplu pentru orice tip de eveniment  
 ✅ **Accessible** - Urmează standardele WCAG 2.1  
 
-## Instalare Rapidă
+## Quick Start (CDN / GitHub Pages)
 
-### 1. Include fișierele în HTML
+You can use the widget directly in your project without downloading files by importing from GitHub Pages or a CDN.
+
+### Method 1: All-in-One (Simplest)
+
+```html
+<!-- Single CSS file with everything -->
+<link rel="stylesheet" href="https://ovidiuchis.github.io/orar-widget/styles/schedule-widget-all.css">
+
+<div id="schedule"></div>
+
+<script type="module">
+import ScheduleWidget from 'https://ovidiuchis.github.io/orar-widget/src/schedule-widget.js';
+
+fetch('your-data.json')
+    .then(r => r.json())
+    .then(data => {
+        new ScheduleWidget({
+            containerId: 'schedule',
+            data: data,
+            theme: 'outdoor'  // Choose: outdoor, brighty, conference, community
+        });
+    });
+</script>
+```
+
+### Method 2: Modular (Smaller file size)
+
+```html
+<!-- Base Styles -->
+<link rel="stylesheet" href="https://ovidiuchis.github.io/orar-widget/styles/base.css">
+<link rel="stylesheet" href="https://ovidiuchis.github.io/orar-widget/styles/layout.css">
+
+<!-- Theme (Choose one) -->
+<link rel="stylesheet" href="https://ovidiuchis.github.io/orar-widget/styles/themes/outdoor.css">
+```
+
+```javascript
+import ScheduleWidget from 'https://ovidiuchis.github.io/orar-widget/src/schedule-widget.js';
+// OR via jsDelivr
+// import ScheduleWidget from 'https://cdn.jsdelivr.net/gh/ovidiuchis/orar-widget@main/src/schedule-widget.js';
+
+fetch('your-data.json')
+    .then(r => r.json())
+    .then(data => {
+        new ScheduleWidget({
+            containerId: 'schedule',
+            data: data,
+            theme: 'outdoor'
+        });
+    });
+```
+
+## Installation (Local)
+
+### 1. Clone or Download
+Clone this repository to get the files locally.
+
+### 2. Include files in HTML
 
 ```html
 <!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programul Evenimentului</title>
+    <title>Event Schedule</title>
     
-    <!-- Include CSS-ul widget-ului -->
-    <link rel="stylesheet" href="schedule-widget.css">
-    
-    <!-- Include tema dorită -->
-    <link rel="stylesheet" href="themes/mountain-retreat.css">
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/themes/outdoor.css">
 </head>
 <body>
-    <!-- Container pentru widget -->
     <div id="schedule-container"></div>
     
-    <!-- Include JavaScript-ul -->
-    <script src="schedule-widget.js"></script>
-    
-    <!-- Inițializare -->
-    <script>
-        fetch('tabara2025.json')
-            .then(response => response.json())
-            .then(data => {
-                ScheduleWidget.init({
-                    containerId: 'schedule-container',
-                    data: data,
-                    theme: 'mountain-retreat',
-                    displayMode: 'tabs'
-                });
-            });
+    <script type="module">
+        import ScheduleWidget from './src/schedule-widget.js';
+        
+        // ... initialization code
     </script>
 </body>
 </html>
 ```
 
-### 2. Pregătește JSON-ul cu datele
+### 3. Prepare Data JSON
+
 
 Creează un fișier JSON (ex: `tabara2025.json`) cu structura:
 
@@ -284,12 +327,6 @@ Widget-ul respectă standardele WCAG 2.1 AA:
 1. Validează JSON-ul cu schema
 2. Verifică dacă toate câmpurile obligatorii există
 3. Verifică formatele datelor (ore în HH:MM, date în YYYY-MM-DD)
-
-## Suport
-
-Pentru întrebări și probleme:
-- Email: support@example.com
-- GitHub Issues: github.com/user/schedule-widget
 
 ## Licență
 

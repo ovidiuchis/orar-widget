@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Widget - Interactive Demo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Widget Styles - All-in-One Bundle -->
+    <link rel="stylesheet" href="./styles/schedule-widget-all.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #1a202c;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            font-weight: 300;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Layout */
+        .demo-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 20px;
+        }
+
+        .control-section {
+            margin-bottom: 30px;
+        }
+
+        .control-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .control-section h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        /* Select Inputs */
+        select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        select:hover {
+            border-color: #667eea;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Toggle Switches */
+        .toggle-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .toggle-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-item label {
+            font-size: 0.95rem;
+            color: #4a5568;
+            cursor: pointer;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e0;
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        input:checked+.toggle-slider {
+            background-color: #667eea;
+        }
+
+        input:checked+.toggle-slider:before {
+            transform: translateX(22px);
+        }
+
+        /* Widget Preview */
+        .widget-preview {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            min-height: 700px;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .preview-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .viewport-toggle {
+            display: flex;
+            gap: 8px;
+            background: #f7fafc;
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .viewport-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #718096;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .viewport-btn:hover {
+            color: #4a5568;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .viewport-btn.active {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .preview-wrapper {
+            width: 100%;
+            min-height: 600px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .preview-wrapper.mobile-view {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+            padding: 30px 20px;
+            border-radius: 16px;
+        }
+
+        .preview-wrapper.mobile-view .mobile-frame {
+            width: 375px;
+            max-width: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow:
+                0 0 0 8px rgba(0, 0, 0, 0.05),
+                0 20px 60px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .preview-wrapper.mobile-view .mobile-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 4px 4px;
+            z-index: 1000;
+        }
+
+        #schedule-container {
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .demo-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .control-panel {
+                position: static;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .widget-preview {
+                padding: 20px;
+            }
+
+            .control-panel {
+                padding: 20px;
+            }
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .loading::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            margin-left: 15px;
+            border: 4px solid #e2e8f0;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Schedule Widget</h1>
+            <p>Interactive demo - Explore themes, datasets, and customization options</p>
+        </div>
+
+        <!-- Main Demo Layout -->
+        <div class="demo-layout">
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <!-- Dataset Selection -->
+                <div class="control-section">
+                    <h3>📊 Dataset</h3>
+                    <select id="dataset-select">
+                        <option value="examples/data/example-conference-4day.json">Conference (4 Days)</option>
+                        <option value="examples/data/conf.json">Conference (Detailed)</option>
+                        <option value="examples/data/camp.json">Camp Schedule</option>
+                    </select>
+                </div>
+
+                <!-- Theme Selection -->
+                <div class="control-section">
+                    <h3>🎨 Theme</h3>
+                    <select id="theme-select">
+                        <option value="outdoor">Outdoor</option>
+                        <option value="brighty">Brighty</option>
+                        <option value="conference">Conference</option>
+                        <option value="community">Community</option>
+                    </select>
+                </div>
+
+                <!-- Display Mode -->
+                <div class="control-section">
+                    <h3>📱 Display Mode</h3>
+                    <select id="mode-select">
+                        <option value="tabs">Tabs</option>
+                        <option value="full-scroll">Full Scroll</option>
+                    </select>
+                </div>
+
+                <!-- Options -->
+                <div class="control-section">
+                    <h3>⚙️ Options</h3>
+                    <div class="toggle-group">
+                        <div class="toggle-item">
+                            <label for="toggle-search">Search Bar</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-search" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <label for="toggle-icons">Icons</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-icons" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <label for="toggle-endtimes">End Times</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-endtimes" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <label for="toggle-speakers">Speakers</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-speakers" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <label for="toggle-locations">Locations</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-locations" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget Preview -->
+            <div class="widget-preview">
+                <div class="preview-header">
+                    <div class="preview-title">Preview</div>
+                    <div class="viewport-toggle">
+                        <button class="viewport-btn active" data-viewport="desktop">
+                            <span>🖥️</span>
+                            <span>Desktop</span>
+                        </button>
+                        <button class="viewport-btn" data-viewport="mobile">
+                            <span>📱</span>
+                            <span>Mobile</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="preview-wrapper" id="preview-wrapper">
+                    <div id="schedule-container">
+                        <div class="loading">Loading widget</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import ScheduleWidget from './src/schedule-widget.js';
+
+        let currentWidget = null;
+
+        // LocalStorage key
+        const STORAGE_KEY = 'schedule-widget-demo-preferences';
+
+        // Get all controls
+        const datasetSelect = document.getElementById('dataset-select');
+        const themeSelect = document.getElementById('theme-select');
+        const modeSelect = document.getElementById('mode-select');
+        const toggleSearch = document.getElementById('toggle-search');
+        const toggleIcons = document.getElementById('toggle-icons');
+        const toggleEndTimes = document.getElementById('toggle-endtimes');
+        const toggleSpeakers = document.getElementById('toggle-speakers');
+        const toggleLocations = document.getElementById('toggle-locations');
+        const previewWrapper = document.getElementById('preview-wrapper');
+        const viewportBtns = document.querySelectorAll('.viewport-btn');
+
+        // Save preferences to localStorage
+        function savePreferences() {
+            const preferences = {
+                dataset: datasetSelect.value,
+                theme: themeSelect.value,
+                displayMode: modeSelect.value,
+                showSearch: toggleSearch.checked,
+                showIcons: toggleIcons.checked,
+                showEndTimes: toggleEndTimes.checked,
+                showSpeakers: toggleSpeakers.checked,
+                showLocations: toggleLocations.checked
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
+        }
+
+        // Load preferences from localStorage
+        function loadPreferences() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const preferences = JSON.parse(saved);
+
+                    // Apply saved values
+                    if (preferences.dataset) datasetSelect.value = preferences.dataset;
+                    if (preferences.theme) themeSelect.value = preferences.theme;
+                    if (preferences.displayMode) modeSelect.value = preferences.displayMode;
+
+                    toggleSearch.checked = preferences.showSearch !== false;
+                    toggleIcons.checked = preferences.showIcons !== false;
+                    toggleEndTimes.checked = preferences.showEndTimes !== false;
+                    toggleSpeakers.checked = preferences.showSpeakers !== false;
+                    toggleLocations.checked = preferences.showLocations !== false;
+
+                    return true;
+                }
+            } catch (error) {
+                console.error('Error loading preferences:', error);
+            }
+            return false;
+        }
+
+        // Initialize widget
+        async function initWidget() {
+            const container = document.getElementById('schedule-container');
+            container.innerHTML = '<div class="loading">Loading widget</div>';
+
+            try {
+                const response = await fetch(datasetSelect.value);
+                const data = await response.json();
+
+                // Clear container
+                container.innerHTML = '';
+
+                // Create new widget instance
+                currentWidget = new ScheduleWidget({
+                    containerId: 'schedule-container',
+                    data: data,
+                    theme: themeSelect.value,
+                    displayMode: modeSelect.value,
+                    options: {
+                        showSearch: toggleSearch.checked,
+                        showIcons: toggleIcons.checked,
+                        showEndTimes: toggleEndTimes.checked,
+                        showSpeakers: toggleSpeakers.checked,
+                        showLocations: toggleLocations.checked,
+                        language: 'en',
+                        timeFormat: '24h'
+                    }
+                });
+            } catch (error) {
+                console.error('Error loading widget:', error);
+                container.innerHTML = '<p style="text-align:center; padding: 40px; color: #e53e3e;">Error loading data. Please try another dataset.</p>';
+            }
+        }
+
+        // Viewport toggle
+        viewportBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                viewportBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const viewport = btn.dataset.viewport;
+                const container = document.getElementById('schedule-container');
+
+                if (viewport === 'mobile') {
+                    previewWrapper.classList.add('mobile-view');
+
+                    // Wrap container in mobile frame if not already wrapped
+                    if (!container.parentElement.classList.contains('mobile-frame')) {
+                        const mobileFrame = document.createElement('div');
+                        mobileFrame.className = 'mobile-frame';
+                        container.parentElement.insertBefore(mobileFrame, container);
+                        mobileFrame.appendChild(container);
+                    }
+                } else {
+                    previewWrapper.classList.remove('mobile-view');
+
+                    // Unwrap container from mobile frame
+                    const mobileFrame = container.parentElement;
+                    if (mobileFrame.classList.contains('mobile-frame')) {
+                        previewWrapper.insertBefore(container, mobileFrame);
+                        mobileFrame.remove();
+                    }
+                }
+            });
+        });
+
+        // Event listeners with save
+        datasetSelect.addEventListener('change', () => {
+            savePreferences();
+            initWidget();
+        });
+        themeSelect.addEventListener('change', () => {
+            savePreferences();
+            initWidget();
+        });
+        modeSelect.addEventListener('change', () => {
+            savePreferences();
+            initWidget();
+        });
+        toggleSearch.addEventListener('change', () => {
+            savePreferences();
+            initWidget();
+        });
+        toggleIcons.addEventListener('change', () => {
+            savePreferences();
+            initWidget();
+        });
+        toggleEndTimes.addEventListener('change', () => {
+            savePreferences();
+            initWidget();
+        });
+        toggleSpeakers.addEventListener('change', () => {
+            savePreferences();
+            initWidget();
+        });
+        toggleLocations.addEventListener('change', () => {
+            savePreferences();
+            initWidget();
+        });
+
+        // Load preferences and initialize
+        loadPreferences();
+        initWidget();
+    </script>
+</body>
+
+</html>

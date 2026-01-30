@@ -1,0 +1,83 @@
+/* themes/brighty.css */
+
+.schedule-widget--theme-brighty {
+    /* Color palette - High energy */
+    --color-primary: #ec4899;
+    /* Pink */
+    --color-secondary: #8b5cf6;
+    /* Violet */
+    --color-accent: #facc15;
+    /* Yellow */
+
+    --text-primary: #000000;
+    --text-secondary: #1f2937;
+    --text-muted: #4b5563;
+
+    --background: #fff1f2;
+    /* Very light pink */
+    --background-elevated: #ffffff;
+    --card-background: #ffffff;
+
+    /* Bold colors */
+    --activity-logistics: #000000;
+    --activity-session: #ec4899;
+    --activity-meal: #f59e0b;
+    --activity-break: #14b8a6;
+    --activity-worship: #8b5cf6;
+    --activity-recreation: #ef4444;
+    --activity-other: #6b7280;
+}
+
+.schedule-widget--theme-brighty .schedule-widget__header {
+    border: 3px solid #000;
+    box-shadow: 6px 6px 0 #000;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md);
+    background: white;
+    transform: rotate(-0.5deg);
+    /* Slight funk */
+    max-width: calc(100% - var(--spacing-lg));
+}
+
+.schedule-widget--theme-brighty .schedule-widget__title {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    /* Huge */
+    letter-spacing: -0.04em;
+    background: linear-gradient(45deg, #ec4899, #8b5cf6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ec4899;
+    /* Fallback */
+    margin-bottom: 0;
+}
+
+.schedule-widget--theme-brighty .schedule-widget__activity-card {
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    border-radius: 8px;
+    border-left: 2px solid #000;
+    border-left-width: 10px;
+    border-left-color: var(--activity-color) !important;
+    transition: transform 0.1s;
+    background: white;
+}
+
+.schedule-widget--theme-brighty .schedule-widget__activity-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+
+.schedule-widget--theme-brighty .schedule-widget__day-tab {
+    border: 2px solid #000;
+    font-weight: 800;
+    border-radius: 0;
+}
+
+.schedule-widget--theme-brighty .schedule-widget__day-tab--active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}

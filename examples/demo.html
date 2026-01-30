@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Widget Ultimate Demo</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+
+    <!-- Themes -->
+    <link rel="stylesheet" href="../styles/themes/outdoor.css">
+    <link rel="stylesheet" href="../styles/themes/conference.css">
+    <link rel="stylesheet" href="../styles/themes/community.css">
+    <link rel="stylesheet" href="../styles/themes/brighty.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        .controls-panel {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .control-group label {
+            font-weight: 600;
+            font-size: 14px;
+            color: #555;
+        }
+
+        select,
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        button#reload-btn {
+            grid-column: 1 / -1;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+
+        button#reload-btn:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="controls-panel">
+        <div class="control-group">
+            <label for="theme">Theme</label>
+            <select id="theme">
+                <option value="outdoor">Outdoor</option>
+                <option value="conference">Conference</option>
+                <option value="community">Community</option>
+                <option value="brighty">Brighty</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="mode">Display Mode</label>
+            <select id="mode">
+                <option value="tabs">Tabs</option>
+                <option value="list">Full List</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label>Features</label>
+            <div class="checkbox-group">
+                <label class="checkbox-label"><input type="checkbox" id="showSearch" checked> Show Search</label>
+                <label class="checkbox-label"><input type="checkbox" id="showIcons" checked> Show Icons</label>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Details</label>
+            <div class="checkbox-group">
+                <label class="checkbox-label"><input type="checkbox" id="showEndTimes" checked> Show End Times</label>
+                <label class="checkbox-label"><input type="checkbox" id="showSpeakers" checked> Show Speakers</label>
+                <label class="checkbox-label"><input type="checkbox" id="showLocations" checked> Show Locations</label>
+            </div>
+        </div>
+
+        <button id="reload-btn">Update Widget</button>
+    </div>
+
+    <div id="schedule-container"></div>
+
+    <script type="module">
+        import ScheduleWidget from '../src/schedule-widget.js';
+
+        let widget = null;
+        let scheduleData = null;
+
+        async function loadData() {
+            try {
+                // Using the rich example data
+                const response = await fetch('./data/example-conference-4day.json');
+                scheduleData = await response.json();
+                initWidget();
+            } catch (error) {
+                console.error(error);
+                document.getElementById('schedule-container').innerHTML = 'Error loading data.';
+            }
+        }
+
+        function initWidget() {
+            const container = document.getElementById('schedule-container');
+            container.innerHTML = ''; // Clean
+
+            const config = {
+                containerId: 'schedule-container',
+                data: scheduleData,
+                theme: document.getElementById('theme').value,
+                displayMode: document.getElementById('mode').value,
+                options: {
+                    showSearch: document.getElementById('showSearch').checked,
+                    showIcons: document.getElementById('showIcons').checked,
+                    showEndTimes: document.getElementById('showEndTimes').checked,
+                    showSpeakers: document.getElementById('showSpeakers').checked,
+                    showLocations: document.getElementById('showLocations').checked,
+                    // Hardcoded for demo/completeness
+                    language: 'ro',
+                    timeFormat: '24h'
+                }
+            };
+
+            console.log('Initializing with config:', config);
+            widget = new ScheduleWidget(config);
+        }
+
+        document.getElementById('reload-btn').addEventListener('click', initWidget);
+
+        // Auto-update on change for better UX
+        const inputs = document.querySelectorAll('select, input');
+        inputs.forEach(input => {
+            input.addEventListener('change', initWidget);
+        });
+
+        loadData();
+    </script>
+</body>
+
+</html>

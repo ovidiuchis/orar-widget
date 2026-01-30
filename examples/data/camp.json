@@ -1,0 +1,128 @@
+{
+  "eventInfo": {
+    "title": "Ieșire 1-4 Mai 2025",
+    "subtitle": "Planificare & informații utile",
+    "dateRange": "1-4 Mai 2025",
+    "location": "Pensiunea Ieșire, Iclod",
+    "urls": [
+      {
+        "url": "https://maps.google.com/?q=Pensiunea+Iesire+Iclod",
+        "title": "View on Map"
+      },
+      {
+        "url": "https://www.pensiunea-iesire.ro",
+        "title": "Venue Website"
+      }
+    ],
+    "timezone": "Europe/Bucharest"
+  },
+  "days": [
+    {
+      "id": "day-1",
+      "date": "2025-05-01",
+      "dayLabel": "Joi, 1 Mai",
+      "theme": "Sosire & Bun Venit",
+      "activities": [
+        {
+          "id": "d1-a1",
+          "startTime": "10:00",
+          "endTime": "12:00",
+          "title": "Sosire & așezare în camere",
+          "type": "logistics",
+          "icon": "🛏️"
+        },
+        {
+          "id": "d1-a2",
+          "startTime": "13:00",
+          "endTime": "14:30",
+          "title": "Prânz de bun venit",
+          "type": "meal",
+          "icon": "🍽️"
+        },
+        {
+          "id": "d1-a3",
+          "startTime": "15:30",
+          "endTime": "17:30",
+          "title": "Timp liber / relaxare",
+          "type": "recreation",
+          "icon": "🌳"
+        },
+        {
+          "id": "d1-a4",
+          "startTime": "17:30",
+          "endTime": "19:00",
+          "title": "Întâlnire de seară",
+          "type": "worship",
+          "icon": "🙌"
+        },
+        {
+          "id": "d1-a5",
+          "startTime": "19:00",
+          "endTime": "20:30",
+          "title": "Cina",
+          "type": "meal",
+          "icon": "🍲"
+        }
+      ]
+    },
+    {
+      "id": "day-2",
+      "date": "2025-05-02",
+      "dayLabel": "Vineri, 2 Mai",
+      "theme": "Întâlniri și Activități",
+      "activities": [
+        {
+          "id": "d2-a1",
+          "startTime": "08:30",
+          "endTime": "09:30",
+          "title": "Mic dejun",
+          "type": "meal",
+          "icon": "🍞"
+        },
+        {
+          "id": "d2-a2",
+          "startTime": "10:00",
+          "endTime": "12:00",
+          "title": "Sesiune Principală",
+          "type": "session",
+          "icon": "🎤",
+          "speakers": [
+            {
+              "name": "Pastor John"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "activityTypes": {
+    "logistics": {
+      "color": "#9CA3AF",
+      "icon": "📋"
+    },
+    "session": {
+      "color": "#3B82F6",
+      "icon": "📖"
+    },
+    "meal": {
+      "color": "#F59E0B",
+      "icon": "🍽️"
+    },
+    "break": {
+      "color": "#FDE68A",
+      "icon": "☕"
+    },
+    "worship": {
+      "color": "#8B5CF6",
+      "icon": "🙏"
+    },
+    "recreation": {
+      "color": "#10B981",
+      "icon": "⚽"
+    },
+    "other": {
+      "color": "#6B7280",
+      "icon": "📌"
+    }
+  }
+}

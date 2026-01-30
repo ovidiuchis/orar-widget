@@ -1,0 +1,11 @@
+/* schedule-widget-all.css - All-in-one bundle */
+
+/* Import base styles */
+@import url('./base.css');
+@import url('./layout.css');
+
+/* Import all themes */
+@import url('./themes/outdoor.css');
+@import url('./themes/brighty.css');
+@import url('./themes/conference.css');
+@import url('./themes/community.css');

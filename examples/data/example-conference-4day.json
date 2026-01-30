@@ -1,0 +1,178 @@
+{
+    "eventInfo": {
+        "title": "Design Systems 2025",
+        "subtitle": "The Future of Interface Design",
+        "dateRange": "15-18 June 2025",
+        "location": "Nordic Design Center, Copenhagen",
+        "timezone": "Europe/Copenhagen"
+    },
+    "days": [
+        {
+            "id": "day-1",
+            "date": "2025-06-15",
+            "dayLabel": "Day 1: Foundations",
+            "activities": [
+                {
+                    "id": "d1-a1",
+                    "startTime": "09:00",
+                    "endTime": "10:00",
+                    "title": "Registration & Coffee",
+                    "type": "welcome"
+                },
+                {
+                    "id": "d1-a2",
+                    "startTime": "10:00",
+                    "endTime": "11:30",
+                    "title": "Keynote: The New aesthetic",
+                    "type": "keynote",
+                    "speakers": [
+                        {
+                            "name": "Sarah Drasner"
+                        }
+                    ]
+                },
+                {
+                    "id": "d1-a3",
+                    "startTime": "12:00",
+                    "endTime": "13:30",
+                    "title": "Networking Lunch",
+                    "type": "social"
+                },
+                {
+                    "id": "d1-a4",
+                    "startTime": "14:00",
+                    "endTime": "16:00",
+                    "title": "Workshop: Color Theory in 2025",
+                    "type": "workshop",
+                    "location": "Studio A",
+                    "description": "Deep dive into dynamic color gamuts and accessibility."
+                }
+            ]
+        },
+        {
+            "id": "day-2",
+            "date": "2025-06-16",
+            "dayLabel": "Day 2: Architecture",
+            "activities": [
+                {
+                    "id": "d2-a1",
+                    "startTime": "09:30",
+                    "endTime": "10:30",
+                    "title": "Atomic Design Scaled",
+                    "type": "talk"
+                },
+                {
+                    "id": "d2-a2",
+                    "startTime": "11:00",
+                    "endTime": "12:30",
+                    "title": "Design Tokens at Enterprise Level",
+                    "type": "talk",
+                    "speakers": [
+                        {
+                            "name": "Jina Anne"
+                        }
+                    ]
+                },
+                {
+                    "id": "d2-a3",
+                    "startTime": "14:00",
+                    "endTime": "15:30",
+                    "title": "Panel: Developer Handoff",
+                    "type": "panel"
+                },
+                {
+                    "id": "d2-a4",
+                    "startTime": "19:00",
+                    "endTime": "22:00",
+                    "title": "Design Awards Gala",
+                    "type": "gala"
+                }
+            ]
+        },
+        {
+            "id": "day-3",
+            "date": "2025-06-17",
+            "dayLabel": "Day 3: Innovation",
+            "activities": [
+                {
+                    "id": "d3-a1",
+                    "startTime": "10:00",
+                    "endTime": "11:00",
+                    "title": "AI in Creative Workflows",
+                    "type": "keynote"
+                },
+                {
+                    "id": "d3-a2",
+                    "startTime": "13:00",
+                    "endTime": "17:00",
+                    "title": "Hackathon: Build a System",
+                    "type": "workshop",
+                    "location": "Main Hall"
+                }
+            ]
+        },
+        {
+            "id": "day-4",
+            "date": "2025-06-18",
+            "dayLabel": "Day 4: Wrap Up",
+            "activities": [
+                {
+                    "id": "d4-a1",
+                    "startTime": "09:00",
+                    "endTime": "11:00",
+                    "title": "Community Breakfast",
+                    "type": "social"
+                },
+                {
+                    "id": "d4-a2",
+                    "startTime": "11:00",
+                    "endTime": "12:30",
+                    "title": "Closing Ceremony",
+                    "type": "welcome"
+                }
+            ]
+        }
+    ],
+    "activityTypes": {
+        "welcome": {
+            "color": "#14b8a6",
+            "icon": "👋",
+            "label": "Welcome"
+        },
+        "keynote": {
+            "color": "#f43f5e",
+            "icon": "✨",
+            "label": "Keynote"
+        },
+        "talk": {
+            "color": "#3b82f6",
+            "icon": "🎤",
+            "label": "Talk"
+        },
+        "workshop": {
+            "color": "#8b5cf6",
+            "icon": "🛠️",
+            "label": "Workshop"
+        },
+        "panel": {
+            "color": "#f59e0b",
+            "icon": "👥",
+            "label": "Panel"
+        },
+        "social": {
+            "color": "#10b981",
+            "icon": "🥂",
+            "label": "Social"
+        },
+        "gala": {
+            "color": "#0f172a",
+            "icon": "🏆",
+            "label": "Special Event"
+        },
+        "other": {
+            "color": "#64748b",
+            "icon": "📌",
+            "label": "Other"
+        }
+    }
+}

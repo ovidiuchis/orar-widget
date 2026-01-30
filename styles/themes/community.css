@@ -1,0 +1,90 @@
+/* themes/community.css */
+
+.schedule-widget--theme-community {
+    /* Earthy Tone Palette */
+    --color-primary: #5D4037;
+    /* Deep Warm Brown */
+    --color-secondary: #8D6E63;
+    /* Lighter Brown */
+    --color-accent: #82AC7C;
+    /* Comfort Green */
+
+    --text-primary: #3E2723;
+    /* Very Dark Brown text */
+    --text-secondary: #5D4037;
+    --text-muted: #8D6E63;
+
+    --background: #fdfbf7;
+    /* Warm creamy white */
+    --background-elevated: #efebe9;
+    /* Warm light beige */
+    --card-background: #ffffff;
+    --background-hover: #fafafa;
+
+    /* Nature Inspired Activity Colors */
+    --activity-logistics: #A1887F;
+    /* Taupe */
+    --activity-session: #5D4037;
+    /* Brown */
+    --activity-meal: #D58258;
+    /* Terracotta */
+    --activity-break: #A8A676;
+    /* Muted Olive */
+    --activity-worship: #795548;
+    /* Cocoa */
+    --activity-recreation: #82AC7C;
+    /* Sage Green */
+    --activity-meeting: #A88C7D;
+    /* Sandrift */
+    --activity-other: #BCAAA4;
+
+    /* Soft Organic Feel */
+    --radius-md: 16px;
+    /* Very round corners */
+    --radius-sm: 8px;
+    --shadow-md: 0 8px 20px rgba(93, 64, 55, 0.08);
+    /* Warm shadow */
+    --font-family-base: 'Nunito', 'Segoe UI', sans-serif;
+}
+
+/* Friendly shapes */
+.schedule-widget--theme-community .schedule-widget__activity-card {
+    border-radius: 16px;
+    border: 1px solid rgba(93, 64, 55, 0.1);
+    border-left: none;
+    /* Clean look */
+    box-shadow: 0 4px 12px rgba(93, 64, 55, 0.05);
+}
+
+.schedule-widget--theme-community .schedule-widget__activity-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.schedule-widget--theme-community .schedule-widget__day-tab {
+    border-radius: 20px;
+    background: rgba(93, 64, 55, 0.05);
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+}
+
+.schedule-widget--theme-community .schedule-widget__day-tab--active {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(93, 64, 55, 0.25);
+}
+
+.schedule-widget--theme-community .schedule-widget__header {
+    background: var(--background-elevated);
+    box-shadow: none;
+    border-radius: 0 0 24px 24px;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    border-top: 5px solid var(--color-primary);
+    /* Cap */
+}
+
+.schedule-widget--theme-community .schedule-widget__title {
+    color: var(--color-primary);
+    font-weight: 900;
+}
